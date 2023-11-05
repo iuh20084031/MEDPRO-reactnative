@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import ScreenLogin from './src/screen/ScreenLogin';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import ScreenLogin from './src/screen/Account/ScreenLogin';
+import ScreenPasswordConfirm from './src/screen/Account/ScreenPasswordConfirm';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,10 +22,10 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='ScreenHome'
-          component={ScreenLogin}
-          options={{ headerShown: false }}
+          name='ScreenPasswordConfirm'
+          component={ScreenPasswordConfirm}
         />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
