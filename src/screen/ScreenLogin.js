@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-web'
 
 const ScreenLogin = () => {
   useEffect(() => {
-    
+
   }, [])
   return (
     <SafeAreaView style={{
@@ -49,7 +49,7 @@ const ScreenLogin = () => {
           }}>Sử dụng số điện thoại để tạo tài khoản hoặc đăng nhập vào MEDPRO</Text>
         </View>
         <View>
-          <TextInput 
+          <TextInput
             placeholder=''
           />
           <TextInput />

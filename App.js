@@ -3,13 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import ScreenLogin from './src/screen/ScreenLogin';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import ScreenHome from './src/screen/ScreenHome';
+import ScreenAccount from './src/screen/ScreenAccount';
+import ScreenDoctor from './src/screen/ScreenDoctor';
+import ScreenServicePackage from './src/screen/ScreenServicePackage';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='ScreenLogin'>
+      <Stack.Navigator initialRouteName='ScreenHome'>
         <Stack.Screen
           name='ScreenLogin'
           component={ScreenLogin}
@@ -22,7 +26,7 @@ export default function App() {
         />
         <Stack.Screen
           name='ScreenHome'
-          component={ScreenLogin}
+          component={ScreenServicePackage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
