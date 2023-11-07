@@ -1,7 +1,7 @@
 import { Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-const ScreenLogin = ({route, navigation}) => {
+const ScreenLogin = ({navigation, route }) => {
   const [nextState, setNextSate] = useState(false);
   const [warning, setWarning] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -29,8 +29,8 @@ const ScreenLogin = ({route, navigation}) => {
 
   const handelNextLogin = () => {
     if(nextState) {
-      navigation.navigate('ScreenPasswordConfirm', {
-        phoneNumber : phoneNumber
+      navigation.navigate('ScreenPasswordLogin', {
+        'phoneNumber' : phoneNumber
       })
     }
   }

@@ -8,7 +8,7 @@ const ScreenHome = () => {
         flex : 1,
         alignItems : 'center'
     }}>
-      <Text>ScreenHome</Text>
+      <Text>ScreenHome</Text> 
     </View>
   )
 }
