@@ -37,14 +37,14 @@ const ScreenDoctor = ({ navigation }) => {
                     <Text style={{ fontSize: 12, color: '#20B1DD', fontWeight: 500 }}>Giới tính</Text>
                     <Icon name='chevron-down' size={10} color={'#20B1DD'} />
                 </Pressable>
-            </View>
+            </View>s
             <View style={{
                 flexDirection: 'column', justifyContent: 'flex-start', gap: 10, padding: 10, alignItems: 'center', borderRadius: 20, backgroundColor: 'white', marginRight: 10, marginLeft: 10
             }}>
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 15, color: '#20B1DD', fontWeight: 700 }}>Thạc sĩ, Bác sĩ Tâm lý Phạm Minh Triết - Nguyên Trưởng Khoa Tâm Lý</Text>
                     </View>
@@ -80,7 +80,7 @@ const ScreenDoctor = ({ navigation }) => {
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 15, color: '#20B1DD', fontWeight: 700 }}>Thạc sĩ, Bác sĩ Tâm lý Phạm Minh Triết - Nguyên Trưởng Khoa Tâm Lý</Text>
                     </View>
@@ -116,7 +116,7 @@ const ScreenDoctor = ({ navigation }) => {
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 15, color: '#20B1DD', fontWeight: 700 }}>Thạc sĩ, Bác sĩ Tâm lý Phạm Minh Triết - Nguyên Trưởng Khoa Tâm Lý</Text>
                     </View>
@@ -152,7 +152,7 @@ const ScreenDoctor = ({ navigation }) => {
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 20, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 15, color: '#20B1DD', fontWeight: 700 }}>Thạc sĩ, Bác sĩ Tâm lý Phạm Minh Triết - Nguyên Trưởng Khoa Tâm Lý</Text>
                     </View>
