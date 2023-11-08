@@ -4,6 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ScreenLogin from './src/screen/Account/ScreenLogin';
 import ScreenPasswordConfirm from './src/screen/Account/ScreenPasswordConfirm';
+import ScreenHome from './src/screen/ScreenHome';
+import ScreenAccount from './src/screen/ScreenAccount';
+import ScreenDoctor from './src/screen/ScreenDoctor';
+import ScreenServicePackage from './src/screen/ScreenServicePackage';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,10 +26,25 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name='ScreenHome'
+          component={ScreenLogin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name='ScreenPasswordConfirm'
           component={ScreenPasswordConfirm}
+          options={{ headerShown: false }}
         />
-
+        <Stack.Screen
+          name='ScreenDoctor'
+          component={ScreenDoctor}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenServicePackage'
+          component={ScreenServicePackage}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
