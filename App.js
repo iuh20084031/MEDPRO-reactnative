@@ -32,11 +32,6 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='ScreenHome'
-          component={ScreenLogin}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
           name='ScreenPasswordConfirm'
           component={ScreenPasswordConfirm}
           options={{ headerShown: false }}
