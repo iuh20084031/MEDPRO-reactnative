@@ -17,7 +17,7 @@ const ScreenLogin = ({navigation, route }) => {
     changeNextState();
   }, [phoneNumber])
 
-  const handleWarningPhoneNumber = () => {
+  const handleWarningPhoneNumber = () => { 
     if(isValidPhoneNumber(phoneNumber)) {
       setNextSate(true)
       setWarning(false)
@@ -42,7 +42,7 @@ const ScreenLogin = ({navigation, route }) => {
       alignItems: 'center'
     }}>
       <ImageBackground
-        source={require('../../../../images/bg2.jpg')}
+        source={require('../../../images/bg2.jpg')}
         style={{
           width: '100%',
           height: '100%',
@@ -50,7 +50,7 @@ const ScreenLogin = ({navigation, route }) => {
         }}
       >
         <Image
-          source={require('../../../../images/logoVector.png')}
+          source={require('../../../images/logoVector.png')}
           style={{
             width: 180,
             height: 60,
@@ -95,7 +95,7 @@ const ScreenLogin = ({navigation, route }) => {
             borderBottomWidth: 2
           }}>
             <Image
-              source={require('../../../../images/flag-vn.png')}
+              source={require('../../../images/flag-vn.png')}
               style={{
                 width: 35,
                 height: 20,
@@ -143,7 +143,7 @@ const ScreenLogin = ({navigation, route }) => {
         }}>
           <Pressable>
             <Image
-              source={require('../../../../images/icon-fb.png')}
+              source={require('../../../images/icon-fb.png')}
               style={{
                 width: 45,
                 height: 45,
@@ -153,7 +153,7 @@ const ScreenLogin = ({navigation, route }) => {
           </Pressable>
           <Pressable>
             <Image
-              source={require('../../../../images/icon-google.png')}
+              source={require('../../../images/icon-google.png')}
               style={{
                 width: 45,
                 height: 45,
@@ -165,7 +165,7 @@ const ScreenLogin = ({navigation, route }) => {
           </Pressable>
           <Pressable>
             <Image
-              source={require('../../../../images/icon-zalo.png')}
+              source={require('../../../images/icon-zalo.png')}
               style={{
                 width: 45,
                 height: 45,
