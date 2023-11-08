@@ -11,7 +11,7 @@ const ScreenAccount = ({ navigation }) => {
                 <View style={{ alignItems: 'left', justifyContent: "center", width: "100%", }}>
                     <Icon name='arrow-left' size={25} color={'#FF8678'} />
                 </View>
-                <Image source={require('../../images/Frame3.jpg')} style={{ width: 150, height: 150, borderRadius: 200, border: '5px solid white' }} />
+                <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 150, height: 150, borderRadius: 200, border: '5px solid white' }} />
                 <Text style={{ fontSize: 25, color: 'white', fontWeight: 700 }}>Customer's name</Text>
                 <Pressable style={{ width: "50%", alignItems: 'center', justifyContent: "center", border: '3px solid white', gap: 10, flexDirection: 'row', padding: 5, borderRadius: 200 }}>
                     <Text style={{ fontSize: 20, color: 'white', fontWeight: 400 }}>Đăng Xuất</Text>

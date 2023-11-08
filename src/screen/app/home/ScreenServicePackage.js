@@ -16,14 +16,14 @@ const ScreenServicePackage = ({ navigation }) => {
                     <Icon name='search' size={20} color={'lightgrey'} />
                     <TextInput style={{ fontSize: 20, color: 'lightgrey', fontWeight: 500 }} placeholder='Tìm gói khám'></TextInput>
                 </Pressable>
-            </View>
+            </View> 
             <View style={{
                 flexDirection: 'column', justifyContent: 'flex-start', gap: 10, padding: 10, alignItems: 'center', borderRadius: 20, backgroundColor: 'white', marginRight: 10, marginLeft: 10
             }}>
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center', width: '100%'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 20, color: '#20B1DD', fontWeight: 700 }}>
                             Gói khám bạc - Nam</Text>
@@ -51,7 +51,7 @@ const ScreenServicePackage = ({ navigation }) => {
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center', width: '100%'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 20, color: '#20B1DD', fontWeight: 700 }}>
                             Gói khám bạc - Nam</Text>
@@ -79,7 +79,7 @@ const ScreenServicePackage = ({ navigation }) => {
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center', width: '100%'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 20, color: '#20B1DD', fontWeight: 700 }}>
                             Gói khám bạc - Nam</Text>
@@ -107,7 +107,7 @@ const ScreenServicePackage = ({ navigation }) => {
                 <View style={{
                     flexDirection: 'row', justifyContent: 'flex-start', gap: 10, alignItems: 'center', width: '100%'
                 }}>
-                    <Image source={require('../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
+                    <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 70, height: 70, borderRadius: 200, border: '5px solid white' }} />
                     <View style={{ width: '70%' }}>
                         <Text style={{ fontSize: 20, color: '#20B1DD', fontWeight: 700 }}>
                             Gói khám bạc - Nam</Text>
