@@ -17,7 +17,7 @@ const ScreenLogin = ({navigation, route }) => {
     changeNextState();
   }, [phoneNumber])
 
-  const handleWarningPhoneNumber = () => {
+  const handleWarningPhoneNumber = () => { 
     if(isValidPhoneNumber(phoneNumber)) {
       setNextSate(true)
       setWarning(false)
