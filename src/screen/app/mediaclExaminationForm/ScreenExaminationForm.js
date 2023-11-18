@@ -30,7 +30,7 @@ const ScreenExaminationForm = ({ navigation }) => {
                         <Icon name='arrow-left' size={25} color={'white'} />
                     </View>
                 </Pressable>
-                <Text style={{ fontSize: 25, color: 'white', fontWeight: 600 }}>Danh sách phiếu khám</Text>
+                <Text style={{ fontSize: 22, color: 'white', fontWeight: 600 }}>Danh sách phiếu khám</Text>
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 25, }}>
                 <Pressable style={[styles.pressBtn, { backgroundColor: bgColor[0], color: fontColor[0] }]} onPress={() => { btnHandleIn(0), btnHandleFont(0) }}>
