@@ -9,13 +9,14 @@ import ScreenDoctor from './src/screen/app/home/ScreenDoctor';
 import ScreenServicePackage from './src/screen/app/home/ScreenServicePackage';
 import ScreenPasswordLogin from './src/screen/authentication/ScreenPasswordLogin';
 import ScreenHome from './src/screen/app/home/ScreenHome';
+import Records from './src/screen/app/patientRecords/Records';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() { 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='ScreenLogins'>
+      <Stack.Navigator initialRouteName='Records'>
         <Stack.Screen
           name='ScreenLogin'
           component={ScreenLogin}
@@ -49,6 +50,11 @@ export default function App() {
         <Stack.Screen
           name='ScreenAccount'
           component={ScreenAccount}
+          options={{ headerShown: false }}
+        />
+            <Stack.Screen
+          name='Records'
+          component={Records}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
