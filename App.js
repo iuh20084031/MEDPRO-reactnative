@@ -1,12 +1,60 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import ScreenLogin from './src/screen/authentication/ScreenLogin';
+import ScreenPasswordConfirm from './src/screen/authentication/ScreenPasswordConfirm';
+import ScreenAccount from './src/screen/app/account/ScreenAccount';
+import ScreenDoctor from './src/screen/app/home/ScreenDoctor';
+import ScreenServicePackage from './src/screen/app/home/ScreenServicePackage';
+import ScreenPasswordLogin from './src/screen/authentication/ScreenPasswordLogin';
+import ScreenHome from './src/screen/app/home/ScreenHome';
+import notiScreen from './src/screen/app/notification/notiScreen';
+import ScreenRecord from './src/screen/app/patientRecord/ScreenAllRecord';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='ScreenAccount'>
+        <Stack.Screen
+          name='ScreenLogin'
+          component={ScreenLogin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenHome'
+          component={ScreenHome}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenPasswordLogin'
+          component={ScreenPasswordLogin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenPasswordConfirm'
+          component={ScreenPasswordConfirm}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenDoctor'
+          component={ScreenDoctor}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenServicePackage'
+          component={ScreenServicePackage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ScreenAccount'
+          component={ScreenRecord}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
