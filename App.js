@@ -9,6 +9,7 @@ import ScreenDoctor from './src/screen/app/home/ScreenDoctor';
 import ScreenServicePackage from './src/screen/app/home/ScreenServicePackage';
 import ScreenPasswordLogin from './src/screen/authentication/ScreenPasswordLogin';
 import ScreenHome from './src/screen/app/home/ScreenHome';
+import Records from './src/screen/app/patientRecords/Records';
 import notiScreen from './src/screen/app/notification/notiScreen';
 import ScreenRecord from './src/screen/app/patientRecord/ScreenAllRecord';
 
@@ -51,6 +52,11 @@ export default function App() {
         <Stack.Screen
           name='ScreenAccount'
           component={ScreenRecord}
+          options={{ headerShown: false }}
+        />
+            <Stack.Screen
+          name='Records'
+          component={Records}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
