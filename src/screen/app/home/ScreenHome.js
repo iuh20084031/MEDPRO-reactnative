@@ -1,15 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import HeaderHome from '../component/HeaderHome'
 
 const ScreenHome = () => {
   return (
-    <View style={{
-        width : '100%',
-        flex : 1,
-        alignItems : 'center'
-    }}>
-      <Text>ScreenHome</Text> 
-    </View>
+    <ScrollView>
+      <SafeAreaView>
+      <HeaderHome/>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+      <Text style={{ fontSize :25, marginBottom : 50}}>Hallo</Text>
+    </SafeAreaView>
+    </ScrollView>
   )
 }
 

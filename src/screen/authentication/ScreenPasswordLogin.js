@@ -22,7 +22,7 @@ const ScreenPasswordLogin = ({ navigation, route }) => {
     const handleLogin = () => {
         if(status==='ok') {
             if(password===examplePassword) {
-                navigation.navigate('ScreenHome', {
+                navigation.navigate('MainApp', {
                     usernameLogin : usernameLogin,
                     phoneNumberLogin : phoneNumberLogin
                 })
