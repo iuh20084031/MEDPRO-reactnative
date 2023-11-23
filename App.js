@@ -3,62 +3,18 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ScreenLogin from './src/screen/authentication/ScreenLogin';
-import ScreenPasswordConfirm from './src/screen/authentication/ScreenPasswordConfirm';
-import ScreenAccount from './src/screen/app/account/ScreenAccount';
-import ScreenDoctor from './src/screen/app/home/ScreenDoctor';
-import ScreenServicePackage from './src/screen/app/home/ScreenServicePackage';
 import ScreenPasswordLogin from './src/screen/authentication/ScreenPasswordLogin';
-import ScreenHome from './src/screen/app/home/ScreenHome';
-import Records from './src/screen/app/patientRecords/Records';
-import notiScreen from './src/screen/app/notification/notiScreen';
-import ScreenRecord from './src/screen/app/patientRecord/ScreenAllRecord';
+import mainApp from './src/screen/app/mainApp';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='ScreenAccount'>
-        <Stack.Screen
-          name='ScreenLogin'
-          component={ScreenLogin}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='ScreenHome'
-          component={ScreenHome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='ScreenPasswordLogin'
-          component={ScreenPasswordLogin}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='ScreenPasswordConfirm'
-          component={ScreenPasswordConfirm}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='ScreenDoctor'
-          component={ScreenDoctor}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='ScreenServicePackage'
-          component={ScreenServicePackage}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='ScreenAccount'
-          component={ScreenRecord}
-          options={{ headerShown: false }}
-        />
-            <Stack.Screen
-          name='Records'
-          component={Records}
-          options={{ headerShown: false }}
-        />
+      <Stack.Navigator initialRouteName='MainApp'>
+        <Stack.Screen name='ScreenLogin' component={ScreenLogin} options={{headerShown: false}}/>
+        <Stack.Screen name='ScreenPasswordLogin' component={ScreenPasswordLogin} options={{headerShown: false}}/>
+        <Stack.Screen name='MainApp' component={mainApp} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
