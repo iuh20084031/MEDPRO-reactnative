@@ -1,47 +1,32 @@
 import { Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import { signUp } from '../../firebase/FirebaseAuth';
 
-const ScreenSignup = ({ navigation, route }) => {
-  const [nextState, setNextSate] = useState(false);
+const ScreenSignUp = ({ navigation, route }) => {
+  const [nextState, setNextSate] = useState(true);
   const [warning, setWarning] = useState(false)
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [warp, setWarP] = useState(false);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  const isValidPhoneNumber = (phoneNumber) => {
-    const regex = /^\d{10}$/;
-    return regex.test(phoneNumber);
+  const isValidEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
   }
-  useEffect(() => {
-    const changeNextState = () => {
-      isValidPhoneNumber(phoneNumber) ? setNextSate(true) : setNextSate(false);
-    }
-    changeNextState();
-  }, [phoneNumber, passwordConfirm])
 
-  const handleWarningPhoneNumber = () => {
-    if (isValidPhoneNumber(phoneNumber)) {
-      setNextSate(true)
-      setWarning(false)
-    } else {
-      setNextSate(false)
-      setWarning(true)
-    }
+  const handleWarningEmail = () => {
+    isValidEmail(email) ? setWarning(false):setWarning(true);
   }
   const handelChangeConfirmPass = () => {
-    return password === passwordConfirm;
+    (password && passwordConfirm && (password.trim()===passwordConfirm.trim())) ? setWarP(false) : setWarP(true);
   }
 
   const handleSignup = () => {
-   if(nextState && handelChangeConfirmPass) {
-      
-      navigation.navigate('ScreenLogin', {
-        'phoneNumber' : phoneNumber
-      })
+    if (isValidEmail(email) && password && !warp){
+      signUp(email, password, navigation)
     };
-    console.log("phoneNumber : ", phoneNumber)
-    console.log("password : ", password)
-    console.log("passwordConfirm : ", passwordConfirm)
   }
 
   return (
@@ -84,7 +69,7 @@ const ScreenSignup = ({ navigation, route }) => {
             textAlign: 'center',
             fontSize: 16,
             marginTop: 20
-          }}>Sử dụng số điện thoại để tạo tài khoản hoặc đăng nhập vào MEDPRO</Text>
+          }}>Sử dụng email để tạo tài khoản hoặc đăng nhập vào MEDPRO</Text>
         </View>
         <View style={{
           flexDirection: 'row',
@@ -96,35 +81,30 @@ const ScreenSignup = ({ navigation, route }) => {
           <View style={{
             flexDirection: 'row',
             justifyContent: 'flex-start',
-            width: '30%',
+            width: '26%',
             paddingBottom: 5,
             alignItems: 'center',
             justifyContent: 'space-between',
             borderBottomColor: 'white',
             borderBottomWidth: 2
           }}>
-            <Image
-              source={require('../../../images/flag-vn.png')}
-              style={{
-                width: 35,
-                height: 20,
-                resizeMode: 'contain'
-              }}
-            />
+            <MailOutlineIcon style={{
+              color: 'white',
+            }} />
             <Text style={{
               fontSize: 17,
               color: 'white',
-            }}>+84 </Text>
+            }}>Email </Text>
           </View>
           <View style={{
             width: '69%'
           }}>
             <TextInput
-              value={phoneNumber}
-              placeholder='Nhập số điện thoại'
+              value={email}
+              placeholder='Nhập địa chỉ email'
               placeholderTextColor={'#f2f2f2'}
-              onChangeText={(text) => setPhoneNumber(text)}
-              onBlur={handleWarningPhoneNumber}
+              onChangeText={(text) => setEmail(text)}
+              onBlur={handleWarningEmail}
               style={{
                 fontSize: 17,
                 paddingBottom: 5,
@@ -139,7 +119,7 @@ const ScreenSignup = ({ navigation, route }) => {
         {warning ? <Text style={{
           width: '85%',
           color: 'red'
-        }}>Vui lòng nhập đúng số điện thoại !</Text> : null}
+        }}>Vui lòng nhập đúng email !</Text> : null}
 
         <View style={{
           flexDirection: 'row',
@@ -151,7 +131,7 @@ const ScreenSignup = ({ navigation, route }) => {
           <View style={{
             flexDirection: 'row',
             justifyContent: 'flex-start',
-            width: '30%',
+            width: '26%',
             paddingBottom: 5,
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -216,6 +196,7 @@ const ScreenSignup = ({ navigation, route }) => {
               placeholderTextColor={'#f2f2f2'}
               onChangeText={(text) => setPasswordConfirm(text)}
               secureTextEntry={true}
+              onBlur={handelChangeConfirmPass}
               style={{
                 fontSize: 17,
                 paddingBottom: 5,
@@ -227,6 +208,10 @@ const ScreenSignup = ({ navigation, route }) => {
             />
           </View>
         </View>
+        {warp ? <Text style={{
+          width: '85%',
+          color: 'red'
+        }}>Mật khẩu xác nhận sai !</Text> : null}
         <Pressable
           onPress={handleSignup}
           disabled={nextState ? false : true}
@@ -255,6 +240,6 @@ const ScreenSignup = ({ navigation, route }) => {
   )
 }
 
-export default ScreenSignup
+export default ScreenSignUp
 
 const styles = StyleSheet.create({})
