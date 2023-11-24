@@ -2,7 +2,6 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Pressable, Ima
 import React from 'react'
 import HeaderHome from '../component/HeaderHome'
 import { useEffect } from 'react';
-
 const ScreenHome = ({ navigation, route }) => {
   useEffect(() => {
     navigation.setOptions({
@@ -58,7 +57,6 @@ const ScreenHome = ({ navigation, route }) => {
       }
     });
   }, [navigation]);
-
   return (
     <View style={{
       flex: 1,
@@ -84,15 +82,19 @@ const ScreenHome = ({ navigation, route }) => {
             <View style={{
               flexDirection: 'row',
             }}>
-              <Pressable style={{
-                width: 130,
-                height: 130,
-                backgroundColor: 'white',
-                margin: 1,
-                borderRadius: 8,
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate('ScreenFormBooking', {})
+                }}
+                style={{
+                  width: 130,
+                  height: 130,
+                  backgroundColor: 'white',
+                  margin: 1,
+                  borderRadius: 8,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
                 <Image
                   source={require('../../../../images/med1.png')}
                   style={{
@@ -105,15 +107,19 @@ const ScreenHome = ({ navigation, route }) => {
                   textAlign: 'center'
                 }}>Đặt khám tại cơ sở</Text>
               </Pressable>
-              <Pressable style={{
-                width: 130,
-                height: 130,
-                backgroundColor: 'white',
-                margin: 1,
-                borderRadius: 8,
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate('ScreenSelectHopital', {});
+                }}
+                style={{
+                  width: 130,
+                  height: 130,
+                  backgroundColor: 'white',
+                  margin: 1,
+                  borderRadius: 8,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
                 <Image
                   source={require('../../../../images/med3.png')}
                   style={{
@@ -303,6 +309,9 @@ const ScreenHome = ({ navigation, route }) => {
             fontWeight: 500
           }}>Đặt khám nhanh - Lấy số thứ tự trực tuyến</Text>
           <Pressable
+            onPress={() => {
+              navigation.navigate('ScreenFormBooking', {})
+            }}
             style={{
               width: 180,
               height: 40,
@@ -322,8 +331,8 @@ const ScreenHome = ({ navigation, route }) => {
           </Pressable>
           <View style={{
             marginTop: 30,
-            width : "100%",
-            alignItems : 'center'
+            width: "100%",
+            alignItems: 'center'
           }}>
           </View>
         </SafeAreaView>

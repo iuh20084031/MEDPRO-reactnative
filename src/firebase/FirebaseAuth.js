@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { Alert } from 'react-native';
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyAMaNfDlIpzWU_6lC2ZVzbf8viROFhBepQ",
     authDomain: "medpro-4bf99.firebaseapp.com",
     projectId: "medpro-4bf99",
