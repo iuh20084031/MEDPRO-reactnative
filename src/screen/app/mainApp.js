@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,9 +11,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const HomeStack = () => (
+const HomeStack = ({ navigation, route }) => (
     <Stack.Navigator>
-        <Stack.Screen name='ScreenHome' component={ScreenHome} options={{ headerShown: false }} />
+        <Stack.Screen
+            name='ScreenHome' component={ScreenHome}
+        />
     </Stack.Navigator>
 );
 
