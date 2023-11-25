@@ -23,11 +23,11 @@ const ScreenSelectedDoctor = ({ navigation, route }) => {
     const [doctors, setDoctors] = useState([]);
     const [doctorsFiltered, setDoctorsFiltered] = useState(doctors);
 
-    useEffect(() => {
+    /* useEffect(() => {
         for (let i = 1; i < 12; i++) {
             saveDoctor(i, "Bác sĩ Nha hoa - Phạm Nhật Linh " + i, "Nam", "Nha Khoa", "20/12/2023", "120.000");
         }
-    }, []);
+    }, []); */
     useEffect(() => {
         getAllDoctors((arr) => {
             setDoctors(arr);
@@ -206,7 +206,7 @@ const ScreenSelectedDoctor = ({ navigation, route }) => {
                                     fontSize: 15,
                                     fontWeight: 450,
                                     width: 300
-                                }}>Giá khám :{item.item.date}đ</Text>
+                                }}>Giá khám :{item.item.price}đ</Text>
                             </View>
                         </Pressable>
                     )}
