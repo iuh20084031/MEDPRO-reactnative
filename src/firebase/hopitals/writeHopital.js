@@ -23,4 +23,3 @@ export const saveHospital = (id, name, address, rate, image) => {
       saveHospital(i, 'Bệnh viện XYZ '+i, '456'+i+' Đường ABC, Hà Nội', 4.2, 'https://th.bing.com/th/id/R.036b033a1e414bab9fa2cc8305c9a767?rik=gUxkE%2f9IfNPHpw&pid=ImgRaw&r=0');
     }
   }, []) */
-  // Ví dụ sử dụng hàm để lưu thông tin bệnh viện
