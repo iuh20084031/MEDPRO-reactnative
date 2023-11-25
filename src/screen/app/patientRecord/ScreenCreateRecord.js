@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View, Pressable, Text, TextInput, Picker, Switch, Button, ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView, View, Pressable, Text, TextInput, Picker, Image, ScrollView, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { savePatientRecord } from '../../../firebase/patientRecords/writePatientRecord'
 
@@ -51,7 +51,41 @@ const PatientRecordsComponent = () => {
 };
 
 
-const ScreenCreateRecord = () => {
+const ScreenCreateRecord = ({ navigation }) => {
+
+    useEffect(() => {
+        navigation.setOptions({
+            title: 'Tạo hồ sơ mới',
+            headerRight: () => (
+                <View style={{ marginRight: 10 }}>
+                    <View
+                        style={{
+                            flexDirection: 'row'
+                        }}
+                    >
+                        <Image
+                            source={require('../../../../images/medLogo2.png')}
+                            style={{
+                                width: 70,
+                                height: 70,
+                                resizeMode: 'contain',
+                                marginLeft: 80
+                            }}
+                        />
+                    </View>
+                </View>
+            ),
+            headerStyle: {
+                backgroundColor: '#3385ff',
+                borderRadius: 5,
+                shadowColor: 'rgba(0, 0, 0, 0.2)',
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 1,
+                shadowRadius: 5,
+            }
+        });
+    }, [navigation]);
+
     const [patientInformation, setPatientInformation] = useState({
         id: '',
         name: '',
@@ -108,20 +142,7 @@ const ScreenCreateRecord = () => {
         <ScrollView >
             <SafeAreaView>
                 <View style={styles.container}>
-                    <View style={styles.topNav}>
-                        <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenHome") }}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                                <Icon name='arrow-left' size={25} color={'white'} />
-                            </View>
-                        </Pressable>
-                        <Text style={{ fontSize: 22, color: 'white', fontWeight: 600 }}>Hồ sơ bệnh nhân</Text>
-                        <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenNewRecord") }}>
-                            <View style={{ flexDirection: 'column', alignItems: 'center', gap: 5, alignItems: 'center' }}>
-                                <Icon name='user-plus' size={20} color={'white'} />
-                                <Text style={{ fontSize: 12, color: 'white', fontWeight: 600 }}>Tạo mới</Text>
-                            </View>
-                        </Pressable>
-                    </View>
+
                     <View style={{ width: '100%', padding: 10 }}>
                         <TextInput
                             style={styles.nhap}
@@ -267,3 +288,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#00b1f5', width: '100%'
     },
 });
+{/* <View style={styles.topNav}>
+                        <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenHome") }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                                <Icon name='arrow-left' size={25} color={'white'} />
+                            </View>
+                        </Pressable>
+                        <Text style={{ fontSize: 22, color: 'white', fontWeight: 600 }}>Hồ sơ bệnh nhân</Text>
+                        <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenNewRecord") }}>
+                            <View style={{ flexDirection: 'column', alignItems: 'center', gap: 5, alignItems: 'center' }}>
+                                <Icon name='user-plus' size={20} color={'white'} />
+                                <Text style={{ fontSize: 12, color: 'white', fontWeight: 600 }}>Tạo mới</Text>
+                            </View>
+                        </Pressable>
+                    </View> */}
