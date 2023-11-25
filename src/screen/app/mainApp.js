@@ -12,6 +12,7 @@ import ScreenSelectHopital from './home/ScreenSelectHopital';
 import ScreenSelectPatient from './home/ScreenSelectPatient';
 import ScreenSelectDepartment from './home/ScreenSelectDepartment';
 import ScreenSlectDate from './home/ScreenSlectDate';
+import ScreenCreateRecord from './patientRecord/ScreenCreateRecord';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,15 +49,16 @@ const NotificationStack = () => (
         <Stack.Screen name='ScreenNoti' component={notiScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
 );
-const PatientRecordStack = () => {
+const PatientRecordStack = () => (
     <Stack.Navigator>
-        <Stack.Screen name='ScreenRecords' component={ScreenAllRecord} options={{ headerShown: false }} />
+        <Stack.Screen name='ScreenRecords' component={ScreenCreateRecord} options={{ headerShown: false }} />
     </Stack.Navigator>
-}
+);
+
 
 const mainApp = () => {
     return (
-        <Tab.Navigator initialRouteName='TabHome'>
+        <Tab.Navigator initialRouteName='TabPatientRecord'>
             <Tab.Screen
                 name='TabHome'
                 component={HomeStack}
