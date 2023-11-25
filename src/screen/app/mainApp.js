@@ -13,13 +13,14 @@ import ScreenSelectPatient from './home/ScreenSelectPatient';
 import ScreenSelectDepartment from './home/ScreenSelectDepartment';
 import ScreenSlectDate from './home/ScreenSlectDate';
 import ScreenSelectedDoctor from './home/ScreenSelectedDoctor';
-import ScreenConfimBooking from './home/ScreenConfirmBooking';
+import ScreenConfimBooking from './home/ScreenConfirmBooking'; 
+import ScreenBookingSuccess from './home/ScreenBookingSuccess';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = ({ navigation, route }) => (
-    <Stack.Navigator initialRouteName='ScreenSelectedDoctor'>
+    <Stack.Navigator initialRouteName='ScreenBookingSuccess'>
         <Stack.Screen
             name='ScreenHome' component={ScreenHome}
         />
@@ -43,6 +44,9 @@ const HomeStack = ({ navigation, route }) => (
         />
         <Stack.Screen 
             name='ScreenConfirmBooking' component={ScreenConfimBooking}
+        />
+        <Stack.Screen
+            name='ScreenBookingSuccess' component={ScreenBookingSuccess} options={{headerShown: false}}
         />
     </Stack.Navigator>
 );
