@@ -75,7 +75,7 @@ const ScreenSelectPatient = ({ navigation, route }) => {
                     renderItem={(item) => (
                         <Pressable
                             onPress={() => {
-                                navigation.navigate('ScreenMoreInfo', {
+                                navigation.navigate('ScreenSelectDepartment', {
                                     hospital : hospitalPrams,
                                     patient : item.item
                                 })
