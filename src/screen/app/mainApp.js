@@ -12,13 +12,16 @@ import ScreenSelectHopital from './home/ScreenSelectHopital';
 import ScreenSelectPatient from './home/ScreenSelectPatient';
 import ScreenSelectDepartment from './home/ScreenSelectDepartment';
 import ScreenSlectDate from './home/ScreenSlectDate';
+import ScreenSelectedDoctor from './home/ScreenSelectedDoctor';
+import ScreenConfimBooking from './home/ScreenConfirmBooking';
+import ScreenBookingSuccess from './home/ScreenBookingSuccess';
 import ScreenCreateRecord from './patientRecord/ScreenCreateRecord';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = ({ navigation, route }) => (
-    <Stack.Navigator initialRouteName='ScreenSelectDepartment'>
+    <Stack.Navigator initialRouteName='ScreenBookingSuccess'>
         <Stack.Screen
             name='ScreenHome' component={ScreenHome}
         />
@@ -34,7 +37,17 @@ const HomeStack = ({ navigation, route }) => (
         <Stack.Screen
             name='ScreenFormBooking' component={ScreenFormBooking}
         />
-        <Stack.Screen name='ScreenSelectPatient' component={ScreenSelectPatient}
+        <Stack.Screen
+            name='ScreenSelectPatient' component={ScreenSelectPatient}
+        />
+        <Stack.Screen
+            name='ScreenSelectedDoctor' component={ScreenSelectedDoctor}
+        />
+        <Stack.Screen
+            name='ScreenConfirmBooking' component={ScreenConfimBooking}
+        />
+        <Stack.Screen
+            name='ScreenBookingSuccess' component={ScreenBookingSuccess} options={{ headerShown: false }}
         />
     </Stack.Navigator>
 );
