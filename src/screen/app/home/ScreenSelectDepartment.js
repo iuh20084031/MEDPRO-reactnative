@@ -19,12 +19,6 @@ const ScreenSelectDepartment = ({ navigation, route }) => {
           saveDepartment(i, 'Khoa răng hàm mặt '+i);
         }
       }, []) */
-    useEffect(() => {
-        getAllDepartments((arr) => {
-            setDepartments(arr);
-            setDepartmentssFiltered(arr);
-        });
-    }, []);
 
     useEffect(() => {
         const filtered = departments.filter((item) =>
@@ -67,6 +61,10 @@ const ScreenSelectDepartment = ({ navigation, route }) => {
     }, [navigation]);
 
     useEffect(() => {
+        getAllDepartments((arr) => {
+            setDepartments(arr);
+            setDepartmentssFiltered(arr);
+        });
         try {
             var { hospital, patient } = route.params;
             setHospitalParams(hospital);
@@ -75,9 +73,6 @@ const ScreenSelectDepartment = ({ navigation, route }) => {
             console.log(error);
         }
     }, [navigation]);
-
-    console.log('next', hospitalPrams);
-    console.log('next', patientParams);
 
     return (
         <ScrollView>

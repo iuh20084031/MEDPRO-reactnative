@@ -54,14 +54,13 @@ const ScreenSelectPatient = ({ navigation, route }) => {
         var hos = route.params?.hospital;
         hos ? setHospitalParams(hos) : null;
         console.log(hospitalPrams);
-    }, [navigation]);
-
-    useEffect(() => {
+        
         getAllPatientRecords((patientRs) => {
             setPatients(patientRs);
 
         })
-    }, [])
+    }, [navigation]);
+
     console.log(patients)
     return (
         <ScrollView>
