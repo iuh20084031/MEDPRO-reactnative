@@ -2,8 +2,17 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Pressable, Ima
 import React from 'react'
 import HeaderHome from '../component/HeaderHome'
 import { useEffect } from 'react';
+import { useState } from 'react';
 const ScreenHome = ({ navigation, route }) => {
+  const [email, setEmail] = useState('');
   useEffect(() => {
+    try {
+      var {emailLogin} = route.params;
+      setEmail(emailLogin);
+    } catch (error) {
+      console.log(error)
+    }
+    console.log(route.params)
     navigation.setOptions({
       title: '',
       headerRight: () => (
@@ -15,7 +24,7 @@ const ScreenHome = ({ navigation, route }) => {
           >
             <View>
               <Text style={{ fontSize: 17, fontWeight: 750, color: 'white', marginTop: 15 }}>Medpro xin chào </Text>
-              <Text style={{ fontSize: 15, fontWeight: 600, color: 'white' }}>Linhspez@gmail.com</Text>
+              <Text style={{ fontSize: 15, fontWeight: 600, color: 'white' }}>{emailLogin}</Text>
             </View>
             <Image
               source={require('../../../../images/medLogo2.png')}
@@ -84,7 +93,7 @@ const ScreenHome = ({ navigation, route }) => {
             }}>
               <Pressable
                 onPress={() => {
-                  navigation.navigate('ScreenFormBooking', {})
+                  navigation.navigate('ScreenSelectHopital', {})
                 }}
                 style={{
                   width: 130,

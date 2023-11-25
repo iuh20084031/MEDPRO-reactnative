@@ -13,13 +13,6 @@ const ScreenSelectHopital = ({ navigation, route }) => {
     const [filteredHopital, setFilteredHopital] = useState([]);
 
     useEffect(() => {
-        getAllHospitals((hospitalsArray) => {
-            setHospital(hospitalsArray);
-            setFilteredHopital(hospitalsArray);
-        });
-    }, []);
-
-    useEffect(() => {
         const filtered = hospital.filter((item) =>
             (item.name.toLowerCase() + item.address.toLowerCase()).includes(search.toLowerCase())
         );
@@ -33,6 +26,10 @@ const ScreenSelectHopital = ({ navigation, route }) => {
         }, []) */
 
     useEffect(() => {
+        getAllHospitals((hospitalsArray) => {
+            setHospital(hospitalsArray);
+            setFilteredHopital(hospitalsArray);
+        });
         navigation.setOptions({
             title: 'Chọn cơ sở khám bệnh',
             headerRight: () => (
