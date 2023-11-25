@@ -2,6 +2,7 @@ import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-n
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Pressable } from 'react-native';
+import { saveAppointment } from '../../../firebase/appointments/writeAppointments';
 
 const ScreenConfimBooking = ({ navigation, route }) => {
   const [hospitalPrams, setHospitalParams] = useState({});
@@ -53,6 +54,10 @@ const ScreenConfimBooking = ({ navigation, route }) => {
       }
     });
   }, [navigation]);
+  const handleConfirm = () => {
+    saveAppointment(patientParams, hospitalPrams, departmentParams, doctorParams, dateParams);
+    navigation.navigate("ScreenBookingSuccess") 
+  }
   return (
     <ScrollView>
       <SafeAreaView style={{
@@ -252,22 +257,6 @@ const ScreenConfimBooking = ({ navigation, route }) => {
               <Text style={{
                 fontSize: 16,
                 width: 140
-              }}>Đại chỉ :</Text>
-              <Text style={{
-                fontSize: 16,
-                width: 200
-              }}>{patientParams.address}</Text>
-            </View>
-            <View style={{
-              flexDirection: 'row',
-              padding: 10,
-              borderBottomColor: '#ffffe6',
-              borderBottomWidth: 0.1,
-              borderBottomStyle: 'dotted',
-            }}>
-              <Text style={{
-                fontSize: 16,
-                width: 140
               }}>Nơi khám :</Text>
               <Text style={{
                 fontSize: 16,
@@ -341,9 +330,7 @@ const ScreenConfimBooking = ({ navigation, route }) => {
           </View>
         </View>
         <Pressable
-          onPress={() => {
-
-          }}
+          onPress={handleConfirm}
           style={{
             marginTop: 20,
             width: 200,
