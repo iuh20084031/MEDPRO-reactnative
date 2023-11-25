@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const ScreenNewRecord = ({ navigation }) => {
+    console.log("Patient New ")
     return (
         <SafeAreaView style={[styles.container, { flex: 1 }]}>
 
