@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Rating from '@mui/material/Rating';
 import { saveHospital } from '../../../firebase/hopitals/writeHopital'
-import {getAllHospitals} from '../../../firebase/hopitals/readHopital' 
+import { getAllHospitals } from '../../../firebase/hopitals/readHopital'
+import { Pressable } from 'react-native';
 
 const ScreenSelectHopital = ({ navigation, route }) => {
     const [search, setSearch] = useState('')
@@ -13,11 +14,11 @@ const ScreenSelectHopital = ({ navigation, route }) => {
 
     useEffect(() => {
         getAllHospitals((hospitalsArray) => {
-          setHospital(hospitalsArray);
-          setFilteredHopital(hospitalsArray);
+            setHospital(hospitalsArray);
+            setFilteredHopital(hospitalsArray);
         });
-      }, []);
-    console.log(hospital)
+    }, []);
+
     useEffect(() => {
         const filtered = hospital.filter((item) =>
             (item.name.toLowerCase() + item.address.toLowerCase()).includes(search.toLowerCase())
@@ -25,11 +26,11 @@ const ScreenSelectHopital = ({ navigation, route }) => {
         setFilteredHopital(filtered);
     }, [search]);
 
-/*     useEffect(() => {
-        for (let i = 1; i < 15; i++) {
-            saveHospital(i, 'Bệnh viện XYZ ' + i, '456' + i + ' Đường ABC, Hà Nội', 4.2, 'https://th.bing.com/th/id/R.036b033a1e414bab9fa2cc8305c9a767?rik=gUxkE%2f9IfNPHpw&pid=ImgRaw&r=0');
-        }
-    }, []) */
+    /*     useEffect(() => {
+            for (let i = 1; i < 15; i++) {
+                saveHospital(i, 'Bệnh viện XYZ ' + i, '456' + i + ' Đường ABC, Hà Nội', 4.2, 'https://th.bing.com/th/id/R.036b033a1e414bab9fa2cc8305c9a767?rik=gUxkE%2f9IfNPHpw&pid=ImgRaw&r=0');
+            }
+        }, []) */
 
     useEffect(() => {
         navigation.setOptions({
@@ -63,6 +64,10 @@ const ScreenSelectHopital = ({ navigation, route }) => {
             }
         });
     }, [navigation]);
+
+    const getHospital = (hospitals, id) => {
+        return hospitals.find(hospital => hospital.id === id);
+    }
     return (
         <ScrollView>
             <SafeAreaView style={{
@@ -105,9 +110,16 @@ const ScreenSelectHopital = ({ navigation, route }) => {
                 <FlatList
                     data={filteredHopital}
                     renderItem={(item) => (
-                        <View style={{
-                            marginTop : 10
-                        }}>
+                        <Pressable 
+                            onPress={()=>{
+                                console.log(item.item)
+                                navigation.navigate('ScreenSelectPatient', {
+                                    hospital : item.item
+                                })
+                            }}
+                            style={{
+                                marginTop: 10
+                            }}>
                             <View style={{
                                 width: 350,
                                 height: 90,
@@ -119,7 +131,7 @@ const ScreenSelectHopital = ({ navigation, route }) => {
                                 flexDirection: 'row'
                             }}>
                                 <Image
-                                    source={{ uri: item.item.image}}
+                                    source={{ uri: item.item.image }}
                                     style={{
                                         width: 60,
                                         height: 60
@@ -146,9 +158,9 @@ const ScreenSelectHopital = ({ navigation, route }) => {
                                     }} />
                                 </View>
                             </View>
-                        </View> 
+                        </Pressable>
                     )}
-                    keyExtractor={(item)=> item.id}
+                    keyExtractor={(item) => item.id}
                 />
             </SafeAreaView>
         </ScrollView>
