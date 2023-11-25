@@ -7,14 +7,33 @@ import ScreenAccount from './account/ScreenAccount';
 import notiScreen from './notification/notiScreen';
 import ScreenAllRecord from './patientRecord/ScreenAllRecord';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ScreenFormBooking from './home/ScreenFormBooking';
+import ScreenSelectHopital from './home/ScreenSelectHopital';
+import ScreenSelectPatient from './home/ScreenSelectPatient';
+import ScreenSelectDepartment from './home/ScreenSelectDepartment';
+import ScreenSlectDate from './home/ScreenSlectDate';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = ({ navigation, route }) => (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='ScreenSelectDepartment'>
         <Stack.Screen
             name='ScreenHome' component={ScreenHome}
+        />
+        <Stack.Screen
+            name='ScreenSelectDate' component={ScreenSlectDate}
+        />
+        <Stack.Screen
+            name='ScreenSelectDepartment' component={ScreenSelectDepartment}
+        />
+        <Stack.Screen
+            name='ScreenSelectHopital' component={ScreenSelectHopital}
+        />
+        <Stack.Screen
+            name='ScreenFormBooking' component={ScreenFormBooking}
+        />
+        <Stack.Screen name='ScreenSelectPatient' component={ScreenSelectPatient}
         />
     </Stack.Navigator>
 );
