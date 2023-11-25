@@ -1,29 +1,29 @@
 import { getDatabase, ref, set } from 'firebase/database'
-import {app} from '../FirebaseAuth'
+import { app } from '../FirebaseAuth'
 import { useEffect } from 'react';
 import { saveHospital } from '../hopitals/writeHopital';
 
 const database = getDatabase();
 
 export const savePatientRecord = (id, patienName, patientCode, dob, male, passport, bhyt, profession, phone, email, address) => {
-    set(ref(database, 'patientRecords/'+ id),{
-        patienName : patienName,
-        patientCode : patientCode,
-        dob : dob,
-        male : male,
-        passport : passport, 
-        bhyt : bhyt, 
-        profession : profession,
-        phone : phone, 
-        email : email, 
-        address : address
+    set(ref(database, 'patientRecords/' + id), {
+        patienName: patienName,
+        patientCode: patientCode,
+        dob: dob,
+        male: male,
+        passport: passport,
+        bhyt: bhyt,
+        profession: profession,
+        phone: phone,
+        email: email,
+        address: address
     })
-    .then(()=> {
-        console.log('patien record saving successfully !');
-    })
-    .catch((error)=>{
-        console.log('Error saving patient record : ', error)
-    });
+        .then(() => {
+            console.log('patien record saving successfully !');
+        })
+        .catch((error) => {
+            console.log('Error saving patient record : ', error)
+        });
 }
 
 /* useEffect(()=>{
