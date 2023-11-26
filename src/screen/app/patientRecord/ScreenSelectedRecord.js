@@ -185,25 +185,6 @@ const ScreenSelectedRecord = ({ navigation, route }) => {
                         </View>
                     </View>
                 </View>
-                <Pressable
-                    onPress={() => {
-
-                    }}
-                    style={{
-                        marginTop: 20,
-                        width: 200,
-                        height: 50,
-                        borderRadius: 8,
-                        backgroundColor: '#1a75ff',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                    <Text style={{
-                        color: 'white',
-                        fontSize: 18,
-                        fontWeight: 500
-                    }}>Đi đến đặt khám</Text>
-                </Pressable>
             </SafeAreaView>
         </ScrollView>
     )

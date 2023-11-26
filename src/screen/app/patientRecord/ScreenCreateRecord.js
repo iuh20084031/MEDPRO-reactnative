@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, View, Pressable, Text, TextInput, Picker, Image, ScrollView, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { savePatientRecord } from '../../../firebase/patientRecords/writePatientRecord'
+import uuid from 'react-native-uuid';
 
 const PatientRecordsComponent = () => {
     const [patientRecordsCreated, setPatientRecordsCreated] = useState(false);
@@ -122,7 +123,8 @@ const ScreenCreateRecord = ({ navigation }) => {
         const address = patientInformation.address;
 
         // Send the extracted patient data to the database
-        savePatientRecord(id,
+        savePatientRecord(
+            uuid.v1(),
             patientName,
             patientCode,
             dob,
@@ -134,6 +136,7 @@ const ScreenCreateRecord = ({ navigation }) => {
             email,
             address
         );
+        navigation.navigate('ScreenCreateSucces');
 
     };
 
@@ -144,12 +147,6 @@ const ScreenCreateRecord = ({ navigation }) => {
                 <View style={styles.container}>
 
                     <View style={{ width: '100%', padding: 10 }}>
-                        <TextInput
-                            style={styles.nhap}
-                            placeholder="Nhập số Id (dễ nhớ)"
-                            value={patientInformation.id}
-                            onChangeText={(value) => handleInputChange('id', value)}
-                        />
                         <TextInput
                             style={styles.nhap}
                             placeholder="Họ và tên (có dấu)"
@@ -248,7 +245,8 @@ const styles = StyleSheet.create({
         display: 'flex', flexDirection: 'column', gap: 10, width: '100%',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat', alignItems: 'center'
+        backgroundRepeat: 'no-repeat', alignItems: 'center',
+        backgroundColor : "white"
     },
     image: {
         width: '100%',
@@ -263,14 +261,14 @@ const styles = StyleSheet.create({
     nhap: {
         borderWidth: 1,
         borderColor: '#ccc',
-        borderRadius: 25, // Use pixels instead of 'px'
+        borderRadius: 8, // Use pixels instead of 'px'
         padding: 10,
         margin: 10,
         overflow: 'hidden'
     },
     picker: {
         borderWidth: 1,
-        borderColor: '#ccc', borderRadius: 100,
+        borderColor: '#ccc', borderRadius: 8,
         padding: 10,
         margin: 10,
         borderRadius: 5,
@@ -284,7 +282,7 @@ const styles = StyleSheet.create({
     },
     btnDangky: {
         alignItems: 'center', justifyContent: "space-around",
-        flexDirection: 'row', padding: 10, borderRadius: 100,
+        flexDirection: 'row', padding: 10, borderRadius: 8, marginTop : 30,
         backgroundColor: '#00b1f5', width: '100%'
     },
 });
