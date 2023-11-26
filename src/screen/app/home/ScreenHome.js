@@ -1,18 +1,12 @@
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Pressable, ImageBackground } from 'react-native'
 import React from 'react'
-import HeaderHome from '../component/HeaderHome'
 import { useEffect } from 'react';
-import { useState } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+
 const ScreenHome = ({ navigation, route }) => {
-  const [email, setEmail] = useState('');
+  const user = useSelector((state)=> state.user);
+  console.log('user :', user)
   useEffect(() => {
-    try {
-      var { emailLogin } = route.params;
-      setEmail(emailLogin);
-    } catch (error) {
-      console.log(error)
-    }
-    console.log(route.params)
     navigation.setOptions({
       title: '',
       headerRight: () => (
@@ -24,7 +18,7 @@ const ScreenHome = ({ navigation, route }) => {
           >
             <View>
               <Text style={{ fontSize: 17, fontWeight: 750, color: 'white', marginTop: 15 }}>Medpro xin chào </Text>
-              <Text style={{ fontSize: 15, fontWeight: 600, color: 'white' }}>{emailLogin}</Text>
+              <Text style={{ fontSize: 15, fontWeight: 600, color: 'white' }}>{user}</Text>
             </View>
             <Image
               source={require('../../../../images/medLogo2.png')}

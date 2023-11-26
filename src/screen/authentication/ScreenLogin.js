@@ -2,22 +2,24 @@ import { Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } 
 import React, { useEffect, useState } from 'react'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { signIn } from '../../firebase/FirebaseAuth';
-
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/actions'
 const ScreenLogin = ({ navigation, route }) => {
   const [nextState, setNextSate] = useState(false);
   const [warning, setWarning] = useState(false);
   const [warp, setWarP] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+  const dispatch = useDispatch();
   useEffect(() => {
     var emaiS = route.params?.emailSignUp;
     emaiS ? setEmail(emaiS) : null;
-    console.log("ems : ",emaiS)
-  }, [ route, navigation ])
+    console.log("ems : ", emaiS)
+  }, [route, navigation])
+
   useEffect(() => {
     const changeNextState = () => {
-      isValidEmail(email)&&password ? setNextSate(true) : setNextSate(false);
+      isValidEmail(email) && password ? setNextSate(true) : setNextSate(false);
     }
     changeNextState();
   }, [email])
@@ -39,6 +41,7 @@ const ScreenLogin = ({ navigation, route }) => {
   const handelNextLogin = () => {
     if (nextState) {
       signIn(email, password, navigation);
+      dispatch(login(email));
     }
     console.log("email : ", email)
     console.log("password : ", password)
@@ -167,7 +170,7 @@ const ScreenLogin = ({ navigation, route }) => {
               placeholderTextColor={'#f2f2f2'}
               onChangeText={(text) => setPassword(text)}
               onBlur={() => {
-                password?setWarP(false):setWarP(true);
+                password ? setWarP(false) : setWarP(true);
               }}
               secureTextEntry={true}
               style={{
