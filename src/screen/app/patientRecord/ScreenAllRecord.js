@@ -14,6 +14,38 @@ const ScreenAllRecord = ({ navigation, route }) => {
             setFilteredRecord(recordArr);
         })
     }, [])
+    useEffect(() => {
+        navigation.setOptions({
+            title: 'Danh sách hồ sơ đã tạo',
+            headerRight: () => (
+                <View style={{ marginRight: 10 }}>
+                    <View
+                        style={{
+                            flexDirection: 'row'
+                        }}
+                    >
+                        <Image
+                            source={require('../../../../images/medLogo2.png')}
+                            style={{
+                                width: 70,
+                                height: 70,
+                                resizeMode: 'contain',
+                                marginLeft: 80
+                            }}
+                        />
+                    </View>
+                </View>
+            ),
+            headerStyle: {
+                backgroundColor: '#3385ff',
+                borderRadius: 5,
+                shadowColor: 'rgba(0, 0, 0, 0.2)',
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 1,
+                shadowRadius: 5,
+            }
+        });
+    }, [navigation]);
 
     useEffect(() => {
         const filtered = record.filter((item) =>
@@ -25,21 +57,6 @@ const ScreenAllRecord = ({ navigation, route }) => {
     return (
         <ScrollView>
             <SafeAreaView style={[styles.container, { flex: 1 }]}>
-
-                <View style={styles.topNav}>
-                    <Pressable style={styles.press} onPress={() => { navigation.navigate("TabHome") }}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                            <Icon name='arrow-left' size={25} color={'white'} />
-                        </View>
-                    </Pressable>
-                    <Text style={{ fontSize: 22, color: 'white', fontWeight: 600 }}>Hồ sơ bệnh nhân</Text>
-                    <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenNewRecord") }}>
-                        <View style={{ flexDirection: 'column', alignItems: 'center', gap: 5, alignItems: 'center' }}>
-                            <Icon name='user-plus' size={20} color={'white'} />
-                            <Text style={{ fontSize: 12, color: 'white', fontWeight: 600 }}>Tạo mới</Text>
-                        </View>
-                    </Pressable>
-                </View>
                 <View style={styles.container}>
                     <View style={styles.searchBar}>
                         <Image source={require('../../../../images/search.png')}
