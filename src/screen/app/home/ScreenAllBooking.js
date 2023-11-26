@@ -6,6 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import { getAllAppointments } from '../../../firebase/appointments/readAppointments';
 import { Pressable } from 'react-native';
+import { sendEmail } from './sendInfoApportnment';
 
 const ScreenAllBooking = ({ navigation, route }) => {
     const [search, setSearch] = useState('')

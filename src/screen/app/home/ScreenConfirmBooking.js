@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Pressable } from 'react-native';
 import { saveAppointment } from '../../../firebase/appointments/writeAppointments';
+import { sendEmail } from './sendInfoApportnment';
 
 const ScreenConfimBooking = ({ navigation, route }) => {
   const [hospitalPrams, setHospitalParams] = useState({});
@@ -54,9 +55,27 @@ const ScreenConfimBooking = ({ navigation, route }) => {
       }
     });
   }, [navigation]);
+  const appointment = {
+    patientEmail : patientParams.email,
+    patientName : patientParams.patienName,
+    patientCode : patientParams.patientCode,
+    patientDob : patientParams.dob,
+    patientMale : patientParams.male,
+    patientAddress: patientParams.address,
+    patientPassport : patientParams.passport,
+    patientBhyt : patientParams.bhyt,
+    patientProfession : patientParams.profession,
+    patientPhone : patientParams.phone,
+    hospitalName : hospitalPrams.name,
+    departmentName : departmentParams.name,
+    doctorName : doctorParams.name,
+    price : doctorParams.price,
+    date : dateParams,
+  }
   const handleConfirm = () => {
     saveAppointment(patientParams, hospitalPrams, departmentParams, doctorParams, dateParams);
-    navigation.navigate("ScreenBookingSuccess") 
+    sendEmail(appointment)
+    navigation.navigate("ScreenBookingSuccess")
   }
   return (
     <ScrollView>
@@ -69,7 +88,7 @@ const ScreenConfimBooking = ({ navigation, route }) => {
         alignItems: 'center'
       }}>
         <View style={{
-          padding : 5,
+          padding: 5,
           borderRadius: 5,
           shadowColor: 'rgba(0, 0, 0, 0.2)',
           shadowOffset: { width: 0, height: 2 },
@@ -80,11 +99,11 @@ const ScreenConfimBooking = ({ navigation, route }) => {
             fontSize: 20,
             fontWeight: 500,
             color: 'black',
-            margin: 20, 
-            textAlign : 'center',
-            borderBottomColor : 'gray',
-            borderBottomWidth : 0.1, 
-            padding : 2
+            margin: 20,
+            textAlign: 'center',
+            borderBottomColor: 'gray',
+            borderBottomWidth: 0.1,
+            padding: 2
           }}>THÔNG TIN BỆNH NHÂN</Text>
           <View>
             <View style={{
