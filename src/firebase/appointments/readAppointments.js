@@ -1,6 +1,6 @@
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-export const getAllDepartments = (callback) => {
+export const getAllAppointments = (callback) => {
     const database = getDatabase();
     const appointmentsRef = ref(database, 'appointments');
 

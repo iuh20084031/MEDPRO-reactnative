@@ -18,7 +18,9 @@ import ScreenBookingSuccess from './home/ScreenBookingSuccess';
 import ScreenCreateRecord from './patientRecord/ScreenCreateRecord';
 import ScreenSelectedRecord from './patientRecord/ScreenSelectedRecord';
 import ScreenNewRecord from './patientRecord/ScreenNewRecord';
-
+import ScreenExaminationPayment from './examinationPayment/ScreenExaminationPayment';
+import ScreenSelectedPayment from './examinationPayment/ScreenSelectedPayment';
+import ScreenPaymentCheckOut from './examinationPayment/ScreenPaymentCheckOut';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -51,6 +53,9 @@ const HomeStack = ({ navigation, route }) => (
         <Stack.Screen
             name='ScreenBookingSuccess' component={ScreenBookingSuccess} options={{ headerShown: false }}
         />
+        <Stack.Screen
+            name='ExaminationPaymentStack' component={ExaminationPaymentStack} options={{ headerShown: false }}
+        />
     </Stack.Navigator>
 );
 
@@ -77,6 +82,16 @@ const PatientRecordStack = ({ navigation, route }) => (
     </Stack.Navigator>
 );
 
+const ExaminationPaymentStack = ({ navigation, route }) => (
+    <Stack.Navigator initialRouteName='ScreenExaminationPayment'>
+        <Stack.Screen
+            name='ScreenExaminationPayment' component={ScreenExaminationPayment} options={{ headerShown: false }} />
+        <Stack.Screen
+            name='ScreenSelectedPayment' component={ScreenSelectedPayment} />
+        <Stack.Screen
+            name='ScreenPaymentCheckOut' component={ScreenPaymentCheckOut} />
+    </Stack.Navigator>
+);
 
 const mainApp = () => {
     return (
