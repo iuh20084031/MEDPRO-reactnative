@@ -23,7 +23,7 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = ({ navigation, route }) => (
-    <Stack.Navigator initialRouteName='ScreenBookingSuccess'>
+    <Stack.Navigator initialRouteName='ScreenHome'>
         <Stack.Screen
             name='ScreenHome' component={ScreenHome}
         />

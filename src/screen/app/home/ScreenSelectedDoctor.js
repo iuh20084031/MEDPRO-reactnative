@@ -29,13 +29,6 @@ const ScreenSelectedDoctor = ({ navigation, route }) => {
         }
     }, []); */
     useEffect(() => {
-        getAllDoctors((arr) => {
-            setDoctors(arr);
-            setDoctorsFiltered(arr);
-        })
-    }, [])
-    console.log(doctors)
-    useEffect(() => {
         const filtered = doctors.filter((item) =>
             (item.name.toLowerCase() + item.male.toLowerCase() + item.department.toLowerCase()).includes(search.toLowerCase())
         );
@@ -43,6 +36,10 @@ const ScreenSelectedDoctor = ({ navigation, route }) => {
     }, [search]);
 
     useEffect(() => {
+        getAllDoctors((arr) => {
+            setDoctors(arr);
+            setDoctorsFiltered(arr);
+        })
         try {
             var { hospital, patient, department, date } = route.params;
             setHospitalParams(hospital);
