@@ -13,7 +13,7 @@ const ScreenAccount = ({ navigation }) => {
                         borderBottomLeftRadius: 30, borderBottomRightRadius: 30,
                     }}>
                         <View style={{ alignItems: 'left', justifyContent: "center", width: "100%", }}>
-                            <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenNoti") }}>
+                            <Pressable style={styles.press} onPress={() => { navigation.navigate("TabHome") }}>
                                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                                     <Icon name='arrow-left' size={25} color={'#FF8678'} />
 
