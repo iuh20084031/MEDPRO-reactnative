@@ -2,7 +2,11 @@ import { StyleSheet, Text, View, Image, Pressable, ScrollView } from 'react-nati
 import React, { cloneElement } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { SafeAreaView } from 'react-native-safe-area-context'
-const ScreenAccount = ({ navigation }) => {
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../../redux/actions'
+const ScreenAccount = ({ navigation, route }) => {
+    const user = useSelector((state)=> state.user);
+    const dispatch = useDispatch();
     return (
         <ScrollView>
 
@@ -12,20 +16,8 @@ const ScreenAccount = ({ navigation }) => {
                         width: "100%", alignItems: 'center', justifyContent: "flex-start", backgroundColor: '#00B1F5', gap: 10, padding: 25,
                         borderBottomLeftRadius: 30, borderBottomRightRadius: 30,
                     }}>
-                        <View style={{ alignItems: 'left', justifyContent: "center", width: "100%", }}>
-                            <Pressable style={styles.press} onPress={() => { navigation.navigate("TabHome") }}>
-                                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                                    <Icon name='arrow-left' size={25} color={'#FF8678'} />
-
-                                </View>
-                            </Pressable>
-                        </View>
                         <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 150, height: 150, borderRadius: 200, border: '5px solid white' }} />
-                        <Text style={{ fontSize: 25, color: 'white', fontWeight: 700 }}>Customer's name</Text>
-                        <Pressable style={{ width: "50%", alignItems: 'center', justifyContent: "center", border: '3px solid white', gap: 10, flexDirection: 'row', padding: 5, borderRadius: 200 }}>
-                            <Text style={{ fontSize: 20, color: 'white', fontWeight: 400 }}>Đăng Xuất</Text>
-                            <Icon name='chevron-right' size={15} color={'#FF8678'} />
-                        </Pressable>
+                        <Text style={{ fontSize: 25, color: 'white', fontWeight: 700 }}>{user?user:"Hello"}</Text>
                     </View>
                     <View style={{ padding: 25, gap: 10, backgroundColor: 'white' }}>
                         <Text style={{ fontSize: 18, color: 'black', fontWeight: 700 }}>Điều khoản và quy định</Text>
@@ -85,7 +77,12 @@ const ScreenAccount = ({ navigation }) => {
                             </View>
                             <Icon name="chevron-right" size={15} color="grey" />
                         </Pressable>
-                        <Pressable style={styles.press}>
+                        <Pressable 
+                        onPress={()=>{
+                            dispatch(logout());
+                            navigation.navigate('ScreenLogin');
+                        }}
+                        style={styles.press}>
                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                                 <Icon name="sign-out" size={20} color="#ff4e17" style={{ padding: 10, backgroundColor: '#ffe3e2', borderRadius: 5 }} />
                                 <Text style={{ fontSize: 20, color: 'black', fontWeight: '500' }}>Đăng xuất</Text>
