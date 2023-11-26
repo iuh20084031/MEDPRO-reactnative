@@ -19,14 +19,13 @@ export const signIn = async (email, password, navigation) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
         /* Alert.alert('Đăng nhập thành công!'); */
-        alert('Đăng nhập thành công!');
         navigation.navigate('MainApp', {
             'emailLogin': email
         })
     } catch (error) {
         console.error('Lỗi đăng nhập:', error);
         /* Alert.alert('Đăng nhập thành công!'); */
-        alert('Đăng nhập thất bại ! Thông tin tài khoản không tồn tại');
+        alert('Tài khoản không tồn tại !');
     }
 };
 

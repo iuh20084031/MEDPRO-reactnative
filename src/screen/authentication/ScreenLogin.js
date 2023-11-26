@@ -8,6 +8,7 @@ const ScreenLogin = ({ navigation, route }) => {
   const [nextState, setNextSate] = useState(false);
   const [warning, setWarning] = useState(false);
   const [warp, setWarP] = useState(false);
+  const [war, setWar] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const ScreenLogin = ({ navigation, route }) => {
 
   useEffect(() => {
     const changeNextState = () => {
-      isValidEmail(email) && password ? setNextSate(true) : setNextSate(false);
+      isValidEmail(email) && password && war ? setNextSate(true) : setNextSate(false);
     }
     changeNextState();
   }, [email])
@@ -188,6 +189,11 @@ const ScreenLogin = ({ navigation, route }) => {
           width: '85%',
           color: 'red'
         }}>Vui lòng nhập mật khẩu !</Text> : null}
+
+        {war ? <Text style={{
+          width: '85%',
+          color: 'red'
+        }}>Thông tin tài khoản không chính xác !</Text> : null}
         <Text style={{
           fontSize: 18,
           fontWeight: 600,
