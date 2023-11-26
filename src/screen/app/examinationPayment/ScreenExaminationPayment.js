@@ -17,7 +17,7 @@ const ScreenExaminationPayment = ({ navigation, route }) => {
 
     useEffect(() => {
         const filtered = appointment.filter((item) =>
-            (item.patienName.toLowerCase() + item.address.toLowerCase()).includes(search.toLowerCase())
+            (item.patientName.toLowerCase() + item.patientAddress.toLowerCase()).includes(search.toLowerCase())
         );
         setFilteredAppointment(filtered);
     }, [search]);
@@ -27,7 +27,7 @@ const ScreenExaminationPayment = ({ navigation, route }) => {
             <SafeAreaView style={[styles.container, { flex: 1 }]}>
 
                 <View style={styles.topNav}>
-                    <Pressable style={styles.press} onPress={() => { navigation.navigate("TabHome") }}>
+                    <Pressable style={styles.press} onPress={() => { navigation.navigate('ScreenHome') }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                             <Icon name='arrow-left' size={25} color={'white'} />
                         </View>

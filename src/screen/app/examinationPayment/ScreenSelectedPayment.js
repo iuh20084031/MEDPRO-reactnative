@@ -2,12 +2,41 @@ import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View, } from 'react-
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Pressable } from 'react-native';
-import { saveAppointment } from '../../../firebase/appointments/writeAppointments';
+import { updateAppointment } from '../../../firebase/appointments/writeAppointments';
 import { RadioButton } from 'react-native-paper';
 const ScreenSelectedPayment = ({ navigation, route }) => {
     const [appointmentParams, setAppointmentParams] = useState({});
     const handleConfirm = () => {
-        navigation.navigate("ScreenPaymentCheckOut")
+
+        // Now you can navigate to the payment checkout screen or any other screen
+        navigation.navigate('ScreenPaymentCheckOut');
+
+        // Update the appointment in Firebase to persist the change
+        const updatedData = {
+            patientName: appointmentParams.patientName,
+            patientCode: appointmentParams.patientCode,
+            patientDob: appointmentParams.patientDob,
+            patientMale: appointmentParams.patientMale,
+            patientAddress: appointmentParams.patientAddress,
+            patientPassport: appointmentParams.patientPassport,
+            patientBhyt: appointmentParams.patientBhyt,
+            patientProfession: appointmentParams.patientProfession,
+            patientPhone: appointmentParams.patientPhone,
+            patientEmail: appointmentParams.patientEmail,
+            hospitalName: appointmentParams.hospitalName,
+            departmentName: appointmentParams.departmentName,
+            doctorName: appointmentParams.doctorName,
+            price: 'Đã thanh toán',
+            date: appointmentParams.date,
+        };
+        updateAppointment(appointmentParams.id, updatedData, (success) => {
+            if (success) {
+                console.log('Appointment price updated successfully in Firebase!');
+            } else {
+                console.error('Error updating appointment price in Firebase');
+                // Handle error if needed
+            }
+        });
     }
     const [paymentMethod, setPaymentMethod] = useState("at_hospital");
 
