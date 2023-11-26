@@ -1,30 +1,30 @@
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View, } from 'react-native'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Pressable } from 'react-native';
 import { saveAppointment } from '../../../firebase/appointments/writeAppointments';
-
+import { RadioButton } from 'react-native-paper';
 const ScreenSelectedPayment = ({ navigation, route }) => {
-    const [hospitalPrams, setHospitalParams] = useState({});
-    const [patientParams, setPatientParams] = useState({});
-    const [departmentParams, setDepartmentParams] = useState({});
-    const [dateParams, setDateParams] = useState('');
-    const [doctorParams, setDoctorParams] = useState({});
+    const [appointmentParams, setAppointmentParams] = useState({});
+    const handleConfirm = () => {
+        navigation.navigate("ScreenPaymentCheckOut")
+    }
+    const [paymentMethod, setPaymentMethod] = useState("at_hospital");
 
+    const onPaymentMethodChange = (event) => {
+        setPaymentMethod(event.target.value);
+    };
     useEffect(() => {
         try {
-            var { hospital, patient, department, date, doctor } = route.params;
-            setHospitalParams(hospital);
-            setPatientParams(patient);
-            setDepartmentParams(department);
-            setDateParams(date);
-            setDoctorParams(doctor);
+            const appointment = route.params;
+            console.log('đây là thông tin nhận được')
+            console.log(appointment)
+            setAppointmentParams(appointment);
         } catch (error) {
             console.log(error);
         }
-
         navigation.setOptions({
-            title: 'Xác nhận thông tin đặt khám',
+            title: 'Thông tin phiếu thanh toán',
             headerRight: () => (
                 <View style={{ marginRight: 10 }}>
                     <View
@@ -54,10 +54,6 @@ const ScreenSelectedPayment = ({ navigation, route }) => {
             }
         });
     }, [navigation]);
-    const handleConfirm = () => {
-        saveAppointment(patientParams, hospitalPrams, departmentParams, doctorParams, dateParams);
-        navigation.navigate("ScreenBookingSuccess")
-    }
     return (
         <ScrollView>
             <SafeAreaView style={{
@@ -85,70 +81,105 @@ const ScreenSelectedPayment = ({ navigation, route }) => {
                         borderBottomColor: 'gray',
                         borderBottomWidth: 0.1,
                         padding: 2
-                    }}>THÔNG TIN BỆNH NHÂN</Text>
+                    }}>THÔNG TIN THANH TOÁN</Text>
                     <View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Họ và tên :</Text>
-                            <Text style={styles.textField}>{patientParams.patienName}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientName}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Mã số bệnh nhân :</Text>
-                            <Text style={styles.textField}>{patientParams.patientCode}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientCode}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Ngày sinh :</Text>
-                            <Text style={styles.textField}>{patientParams.dob}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientDob}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Giới tính :</Text>
-                            <Text style={styles.textField}>{patientParams.male}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientMale}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Địa chỉ :</Text>
-                            <Text style={styles.textField}>{patientParams.address}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientAddress}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>CCCD/Passport :</Text>
-                            <Text style={styles.textField}>{patientParams.passport}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientPassport}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Mã bảo hiểm y tế :</Text>
-                            <Text style={styles.textField}>{patientParams.bhyt}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientBhyt}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Nghề nghiệp :</Text>
-                            <Text style={styles.textField}>{patientParams.profession}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientProfession}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Số điện thoại :</Text>
-                            <Text style={styles.textField}>{patientParams.phone}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientPhone}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Email :</Text>
-                            <Text style={styles.textField}>{patientParams.email}</Text>
+                            <Text style={styles.textField}>{appointmentParams.patientEmail}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Nơi khám :</Text>
-                            <Text style={styles.textField}>{hospitalPrams.name}</Text>
+                            <Text style={styles.textField}>{appointmentParams.hospitalName}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Chuyên khoa :</Text>
-                            <Text style={styles.textField}>{departmentParams.name}</Text>
+                            <Text style={styles.textField}>{appointmentParams.departmentName}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Bác sĩ khám :</Text>
-                            <Text style={styles.textField}>{doctorParams.name}</Text>
+                            <Text style={styles.textField}>{appointmentParams.doctorName}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Giá khám :</Text>
-                            <Text style={styles.textField}>{doctorParams.price}</Text>
+                            <Text style={styles.textField}>{appointmentParams.price}</Text>
                         </View>
                         <View style={styles.viewInfo}>
                             <Text style={styles.textLabel}>Thời gian khám :</Text>
-                            <Text style={styles.textField}>{dateParams}</Text>
+                            <Text style={styles.textField}>{appointmentParams.date}</Text>
                         </View>
                     </View>
                 </View>
+                {/* Lựa chọn hình thức thanh toán */}
+                <View style={styles.container}>
+                    <Text style={styles.title}>Chọn hình thức thanh toán</Text>
+                    <View style={styles.radioGroup}>
+                        <RadioButton
+                            value="at_hospital"
+                            onChange={onPaymentMethodChange}
+                            selected={paymentMethod === "at_hospital"}
+                        />
+                        <Text style={styles.radioText}>Thanh toán tại bệnh viện</Text>
+                    </View>
+                    <View style={styles.radioGroup}>
+                        <RadioButton
+                            value="transfer"
+                            onChange={onPaymentMethodChange}
+                            selected={paymentMethod === "transfer"}
+                        />
+                        <Text style={styles.radioText}>Thanh toán chuyển khoản</Text>
+                    </View>
+                    {paymentMethod === "transfer" && (
+                        <View style={styles.qrCode}>
+                            <Image
+                                source={require("../../../../images/maqrkalite.jpg")}
+                                style={styles.qrCodeImage}
+                            />
+                        </View>
+                    )}
+                    <View style={styles.qrCode}>
+                        <Image
+                            source={require("../../../../images/maqrkalite.jpg")}
+                            style={styles.qrCodeImage}
+                        />
+                    </View>
+                </View>
+
                 <Pressable
                     onPress={handleConfirm}
                     style={{
@@ -164,14 +195,14 @@ const ScreenSelectedPayment = ({ navigation, route }) => {
                         color: 'white',
                         fontSize: 18,
                         fontWeight: 500
-                    }}>Xác nhận đặt khám</Text>
+                    }}>Xác nhận Thanh Toán</Text>
                 </Pressable>
             </SafeAreaView>
         </ScrollView>
     )
 }
 
-export default ScreenConfimBooking
+export default ScreenSelectedPayment
 
 const styles = StyleSheet.create({
     viewInfo: {
@@ -188,6 +219,30 @@ const styles = StyleSheet.create({
     textField: {
         fontSize: 16,
         width: 200
-    }
+    },
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    radioGroup: {
+        flexDirection: "row",
+        margin: 10,
+    },
+    radioText: {
+        marginLeft: 10,
+    },
+    qrCode: {
+        width: 200,
+        height: 200,
+    },
+    qrCodeImage: {
+        width: '100%',
+        height: '100%',
+    },
 
 })

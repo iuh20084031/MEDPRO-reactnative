@@ -7,7 +7,7 @@ const ScreenHome = ({ navigation, route }) => {
   const [email, setEmail] = useState('');
   useEffect(() => {
     try {
-      var {emailLogin} = route.params;
+      var { emailLogin } = route.params;
       setEmail(emailLogin);
     } catch (error) {
       console.log(error)
@@ -209,15 +209,19 @@ const ScreenHome = ({ navigation, route }) => {
                   textAlign: 'center'
                 }}>Đặt lịch xét nghiệm</Text>
               </Pressable>
-              <Pressable style={{
-                width: 130,
-                height: 130,
-                backgroundColor: 'white',
-                margin: 1,
-                borderRadius: 8,
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate('ExaminationPaymentStack', {});
+                }}
+                style={{
+                  width: 130,
+                  height: 130,
+                  backgroundColor: 'white',
+                  margin: 1,
+                  borderRadius: 8,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
                 <Image
                   source={require('../../../../images/med8.webp')}
                   style={{
