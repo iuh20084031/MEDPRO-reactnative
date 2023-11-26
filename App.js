@@ -6,18 +6,22 @@ import ScreenLogin from './src/screen/authentication/ScreenLogin';
 import ScreenPasswordLogin from './src/screen/authentication/ScreenPasswordLogin';
 import mainApp from './src/screen/app/mainApp';
 import ScreenSignUp from './src/screen/authentication/ScreenSignup';
+import store from './src/redux/stores';
+import { Provider } from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='MainApp'>
-        <Stack.Screen name='ScreenLogin' component={ScreenLogin} options={{ headerShown: false }} />
-        <Stack.Screen name='ScreenSignUp' component={ScreenSignUp} options={{ headerShown: false }} />
-        <Stack.Screen name='MainApp' component={mainApp} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='MainApp'>
+          <Stack.Screen name='ScreenLogin' component={ScreenLogin} options={{ headerShown: false }} />
+          <Stack.Screen name='ScreenSignUp' component={ScreenSignUp} options={{ headerShown: false }} />
+          <Stack.Screen name='MainApp' component={mainApp} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 const styles = StyleSheet.create({

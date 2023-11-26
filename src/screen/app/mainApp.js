@@ -69,11 +69,11 @@ const PatientRecordStack = ({ navigation, route }) => (
         <Stack.Screen
             name='ScreenAllRecord' component={ScreenAllRecord} options={{ headerShown: false }} />
         <Stack.Screen
-            name='ScreenCreateRecords' component={ScreenCreateRecord} />
+            name='ScreenCreateRecords' component={ScreenCreateRecord} options={{ headerShown: false }}/>
         <Stack.Screen
-            name='ScreenNewRecord' component={ScreenNewRecord} />
+            name='ScreenNewRecord' component={ScreenNewRecord} options={{ headerShown: false }}/>
         <Stack.Screen
-            name='ScreenSelectedRecords' component={ScreenSelectedRecord} />
+            name='ScreenSelectedRecords' component={ScreenSelectedRecord} options={{ headerShown: false }}/>
     </Stack.Navigator>
 );
 
