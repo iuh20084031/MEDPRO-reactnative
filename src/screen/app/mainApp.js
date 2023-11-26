@@ -21,6 +21,7 @@ import ScreenNewRecord from './patientRecord/ScreenNewRecord';
 import ScreenExaminationPayment from './examinationPayment/ScreenExaminationPayment';
 import ScreenSelectedPayment from './examinationPayment/ScreenSelectedPayment';
 import ScreenPaymentCheckOut from './examinationPayment/ScreenPaymentCheckOut';
+import ScreenCreateSucces from './patientRecord/ScreenCreateSucces';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -72,13 +73,16 @@ const NotificationStack = () => (
 const PatientRecordStack = ({ navigation, route }) => (
     <Stack.Navigator initialRouteName='ScreenAllRecord'>
         <Stack.Screen
-            name='ScreenAllRecord' component={ScreenAllRecord} options={{ headerShown: false }} />
+            name='ScreenAllRecord' component={ScreenAllRecord} />
         <Stack.Screen
-            name='ScreenCreateRecords' component={ScreenCreateRecord} options={{ headerShown: false }}/>
+            name='ScreenCreateRecords' component={ScreenCreateRecord} />
         <Stack.Screen
-            name='ScreenNewRecord' component={ScreenNewRecord} options={{ headerShown: false }}/>
+            name='ScreenNewRecord' component={ScreenNewRecord} />
         <Stack.Screen
-            name='ScreenSelectedRecords' component={ScreenSelectedRecord} options={{ headerShown: false }}/>
+            name='ScreenSelectedRecords' component={ScreenSelectedRecord} />
+        <Stack.Screen
+            name='ScreenCreateSucces' component={ScreenCreateSucces} 
+        />
     </Stack.Navigator>
 );
 
