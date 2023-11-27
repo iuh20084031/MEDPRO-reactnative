@@ -2,6 +2,7 @@ import { Image, ImageBackground, Pressable, StyleSheet, Text, TextInput, View } 
 import React, { useEffect, useState } from 'react'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { signUp } from '../../firebase/FirebaseAuth';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const ScreenSignUp = ({ navigation, route }) => {
   const [nextState, setNextSate] = useState(true);
@@ -17,14 +18,14 @@ const ScreenSignUp = ({ navigation, route }) => {
   }
 
   const handleWarningEmail = () => {
-    isValidEmail(email) ? setWarning(false):setWarning(true);
+    isValidEmail(email) ? setWarning(false) : setWarning(true);
   }
   const handelChangeConfirmPass = () => {
-    (password && passwordConfirm && (password.trim()===passwordConfirm.trim())) ? setWarP(false) : setWarP(true);
+    (password && passwordConfirm && (password.trim() === passwordConfirm.trim())) ? setWarP(false) : setWarP(true);
   }
 
   const handleSignup = () => {
-    if (isValidEmail(email) && password && !warp){
+    if (isValidEmail(email) && password && !warp) {
       signUp(email, password, navigation)
     };
   }
@@ -43,6 +44,21 @@ const ScreenSignUp = ({ navigation, route }) => {
           alignItems: 'center',
         }}
       >
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          width: '100%'
+        }}>
+          <Pressable 
+            onPress={()=>{
+              navigation.navigate('ScreenLogin');
+            }}
+          style={{
+            margin : 15
+          }}>
+            <KeyboardBackspaceIcon color='primary' />
+          </Pressable>
+        </View>
         <Image
           source={require('../../../images/logoVector.png')}
           style={{
