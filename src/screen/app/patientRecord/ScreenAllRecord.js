@@ -21,18 +21,25 @@ const ScreenAllRecord = ({ navigation, route }) => {
                 <View style={{ marginRight: 10 }}>
                     <View
                         style={{
-                            flexDirection: 'row'
+                            flexDirection: 'row', alignItems: 'center'
                         }}
                     >
+                        <Pressable style={styles.press} onPress={() => { navigation.navigate("ScreenNewRecord") }}>
+                            <View style={{ flexDirection: 'column', alignItems: 'center', gap: 5, alignItems: 'center' }}>
+                                <Icon name='user-plus' size={20} color={'white'} />
+                                <Text style={{ fontSize: 12, color: 'white', fontWeight: 600 }}>Tạo mới</Text>
+                            </View>
+                        </Pressable>
                         <Image
                             source={require('../../../../images/medLogo2.png')}
                             style={{
-                                width: 70,
-                                height: 70,
+                                width: 60,
+                                height: 60,
                                 resizeMode: 'contain',
-                                marginLeft: 80
+                                marginLeft: 20
                             }}
                         />
+
                     </View>
                 </View>
             ),

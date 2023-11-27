@@ -70,12 +70,12 @@ const HomeStack = ({ navigation, route }) => (
 
 const AccountStack = () => (
     <Stack.Navigator>
-        <Stack.Screen name='ScreenAccount' component={ScreenAccount} options={{ headerShown: false }} />
+        <Stack.Screen name='ScreenAccount' component={ScreenAccount} />
     </Stack.Navigator>
 )
 const NotificationStack = () => (
     <Stack.Navigator>
-        <Stack.Screen name='ScreenNoti' component={notiScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='ScreenNoti' component={notiScreen} />
     </Stack.Navigator>
 );
 const PatientRecordStack = ({ navigation, route }) => (
@@ -89,7 +89,7 @@ const PatientRecordStack = ({ navigation, route }) => (
         <Stack.Screen
             name='ScreenSelectedRecords' component={ScreenSelectedRecord} />
         <Stack.Screen
-            name='ScreenCreateSucces' component={ScreenCreateSucces} 
+            name='ScreenCreateSucces' component={ScreenCreateSucces}
         />
     </Stack.Navigator>
 );
