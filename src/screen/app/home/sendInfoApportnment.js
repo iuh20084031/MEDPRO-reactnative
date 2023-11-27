@@ -18,7 +18,7 @@ export const sendEmail = (appointment) => {
     Giá khám: ${appointment.price}đ
     Thời gian khám: ${appointment.date}
     Thời gian đặt khám : ${Date.now().toString()}
-  `;
+  `; 
     const templateParams = {
         to_name: appointment.patientEmail,
         from_name: 'Medpro',
