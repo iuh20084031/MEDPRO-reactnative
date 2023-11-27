@@ -55,7 +55,8 @@ const ScreenDetailAppointment = ({ navigation, route }) => {
                 backgroundColor: 'white',
                 flex: 1,
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                backgroundColor : 'white'
             }}>
                 <View style={{
                     padding: 5,

@@ -64,6 +64,7 @@ const ScreenHome = ({ navigation, route }) => {
     <View style={{
       flex: 1,
       alignItems: 'center',
+      backgroundColor : 'white'
     }}>
       <ScrollView style={{
         width: '96%'

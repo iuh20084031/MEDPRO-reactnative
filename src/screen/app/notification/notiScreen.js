@@ -79,7 +79,7 @@ const notiScreen = ({ navigation, route }) => {
 
     return (
         <ScrollView>
-            <SafeAreaView style={[styles.container, { flex: 1 }]}>
+            <SafeAreaView style={[styles.container, { flex: 1 , backgroundColor : 'white'}]}>
                 <View style={styles.container}>
                     <View style={styles.searchBar}>
                         <Image source={require('../../../../images/search.png')}

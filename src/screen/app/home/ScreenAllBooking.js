@@ -54,7 +54,8 @@ const ScreenAllBooking = ({ navigation, route }) => {
             <SafeAreaView style={{
                 width: '100%',
                 flex: 1,
-                alignItems: 'center'
+                alignItems: 'center',
+                backgroundColor : 'white'
             }}>
                 <View
                     style={{

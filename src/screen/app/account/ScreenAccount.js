@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View, Image, Pressable, ScrollView } from 'react-native'
-import React, { cloneElement, useEffect } from 'react'
+import React, { cloneElement } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { SafeAreaView } from 'react-native-safe-area-context'
-const ScreenAccount = ({ navigation }) => {
-
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../../redux/actions'
 const ScreenAccount = ({ navigation, route }) => {
@@ -18,7 +16,6 @@ const ScreenAccount = ({ navigation, route }) => {
                         width: "100%", alignItems: 'center', justifyContent: "flex-start", backgroundColor: '#00B1F5', gap: 10, padding: 25,
                         borderBottomLeftRadius: 30, borderBottomRightRadius: 30,
                     }}>
-
                         <Image source={require('../../../../images/Frame3.jpg')} style={{ width: 150, height: 150, borderRadius: 200, border: '5px solid white' }} />
                         <Text style={{ fontSize: 25, color: 'white', fontWeight: 700 }}>{user?user:"Hello"}</Text>
                     </View>
