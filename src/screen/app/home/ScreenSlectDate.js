@@ -87,6 +87,7 @@ const ScreenSlectDate = ({ navigation, route }) => {
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
+                backgroundColor : 'white'
             }}>
                 <Text style={{
                     color: '#1a75ff',

@@ -70,7 +70,7 @@ const HomeStack = ({ navigation, route }) => (
 
 const AccountStack = () => (
     <Stack.Navigator>
-        <Stack.Screen name='ScreenAccount' component={ScreenAccount} />
+        <Stack.Screen name='ScreenAccount' component={ScreenAccount}  options={{ headerShown: false }}/>
     </Stack.Navigator>
 )
 const NotificationStack = () => (
@@ -97,7 +97,7 @@ const PatientRecordStack = ({ navigation, route }) => (
 const ExaminationPaymentStack = ({ navigation, route }) => (
     <Stack.Navigator initialRouteName='ScreenExaminationPayment'>
         <Stack.Screen
-            name='ScreenExaminationPayment' component={ScreenExaminationPayment} options={{ headerShown: false }} />
+            name='ScreenExaminationPayment' component={ScreenExaminationPayment} />
         <Stack.Screen
             name='ScreenSelectedPayment' component={ScreenSelectedPayment} />
         <Stack.Screen
