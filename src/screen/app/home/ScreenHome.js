@@ -112,7 +112,7 @@ const ScreenHome = ({ navigation, route }) => {
               </Pressable>
               <Pressable
                 onPress={() => {
-                  navigation.navigate('ScreenSelectHopital', {});
+                  navigation.navigate('ScreenAllBooking', {});
                 }}
                 style={{
                   width: 130,
@@ -133,9 +133,13 @@ const ScreenHome = ({ navigation, route }) => {
                 <Text style={{
                   width: 80,
                   textAlign: 'center'
-                }}>Tư vấn khám bệnh</Text>
+                }}>Xem lịch đặt khám</Text>
               </Pressable>
-              <Pressable style={{
+              <Pressable 
+              onPress={()=>{
+                navigation.navigate('ScreenSelectHopital')
+              }}
+              style={{
                 width: 130,
                 height: 130,
                 backgroundColor: 'white',

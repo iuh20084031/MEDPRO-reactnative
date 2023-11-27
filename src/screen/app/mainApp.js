@@ -22,11 +22,19 @@ import ScreenExaminationPayment from './examinationPayment/ScreenExaminationPaym
 import ScreenSelectedPayment from './examinationPayment/ScreenSelectedPayment';
 import ScreenPaymentCheckOut from './examinationPayment/ScreenPaymentCheckOut';
 import ScreenCreateSucces from './patientRecord/ScreenCreateSucces';
+import ScreenAllBooking from './home/ScreenAllBooking';
+import ScreenDetailAppointment from './home/ScreenDetailAppointment';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = ({ navigation, route }) => (
     <Stack.Navigator initialRouteName='ScreenHome'>
+        <Stack.Screen
+            name='ScreenAllBooking' component={ScreenAllBooking}
+        />
+        <Stack.Screen
+            name='ScreenDetailAppointment' component={ScreenDetailAppointment}
+        />
         <Stack.Screen
             name='ScreenHome' component={ScreenHome}
         />
@@ -99,7 +107,7 @@ const ExaminationPaymentStack = ({ navigation, route }) => (
 
 const mainApp = () => {
     return (
-        <Tab.Navigator initialRouteName='TabPatientRecord'>
+        <Tab.Navigator initialRouteName='TabHome'>
             <Tab.Screen
                 name='TabHome'
                 component={HomeStack}
